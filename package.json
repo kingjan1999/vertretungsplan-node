@@ -15,7 +15,7 @@
     "test": "babel-node test/index.js | tspec",
     "prebuild": "npm run check -s && npm run clean -s",
     "build": "babel --optional runtime src -d dist",
-    "postbuild": "npm run test -s",
+    "postbuild": "npm run test -s && node_modules/jsdoc/.bin/jsdoc src/ -d doc",
     "coverage": "babel-node node_modules/isparta/bin/isparta cover test/index.js",
     "coveralls": "npm run coverage -s && coveralls < coverage/lcov.info",
     "postcoveralls": "rimraf ./coverage",
@@ -50,15 +50,18 @@
     "doctoc": "*",
     "eslint": "*",
     "isparta": "*",
+    "jsdoc": "^3.4.0",
     "rimraf": "*",
     "tap-spec": "*",
     "tape": "*",
-    "tape-promise": "^1.0.1",
+    "tape-promise": "*",
     "watch": "*"
   },
   "dependencies": {
-    "jsdom": "^8.2.0",
+    "cheerio": "^0.20.0",
+    "fs-promise": "^0.5.0",
     "lodash": "^4.7.0",
+    "request-promise": "^2.0.1",
     "tabletojson": "^0.4.0"
   }
 }

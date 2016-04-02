@@ -1,7 +1,5 @@
 import test from "tape";
 import Vertretungsplan from "../src";
-//import _test from 'tape-promise'
-//const test = _test(tape) // decorate tape
 
 test("vertretretungsplan-load", (t) => {
   t.plan(1);
@@ -12,6 +10,18 @@ test("vertretretungsplan-load", (t) => {
     t.equal(plan.loaded, true, "loaded data");
   });
 
+});
+
+test("errors", (t) => {
+  t.plan(1);
+
+  var plan = new Vertretungsplan('http://ohgspringe.de/phocadownload/plan/subst_004.htm');
+
+  plan.load().then(() => {
+    t.fail("No error was thrown");
+  }).catch((err) => {
+    t.pass("An error was thrown");
+  });
 });
 
 test("vertretungsplans-meta", (t) => {
@@ -50,9 +60,8 @@ test("hasAusfall", (t) => {
   var plan = new Vertretungsplan('file://test/plan_subst_001.htm');
 
   plan.load().then(() => {
-    console.log(plan.getForClass('9F1'));
     t.equal(plan.getForClass('9F1').length, 2, "check 9F1");
     t.equal(plan.getForClass('9F1')[0].fach, 'Fr', "check 9F1 fach");
-    t.equal(plan.getForClass('13').length, 0 , "year 13");
+    t.equal(plan.getForClass('13').length, 0, "year 13");
   });
 });

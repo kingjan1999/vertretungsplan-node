@@ -36,20 +36,34 @@
 
 </big></p>
 
+Module for parsing untis substituon plans.
+
+[Java](https://github.com/kingjan1999/vertretungsplan-java)
+[PHP](https://github.com/kingjan1999/vertretungsplan-php)
 
 ## Install
 
 ```sh
-npm i -D vertretungsplan
+npm i --save vertretungsplan
 ```
 
 ## Usage
 
 ```js
-import vertretungsplan from "vertretungsplan"
+import Vertretungsplan from "vertretungsplan"
 
-vertretungsplan() // true
+var plan = new Vertretungsplan("http://ohgspringe.de/phocadownload/plan/subst_001.htm")
+plan.load();
+
+console.log(plan.getForClass("11")); //Array
+
 ```
+
+## Notice
+
+- The keys are determined by the column-headings of the url.
+- The keys are lowercased ('(Raum)' => '(raum)')
+- For convenience, 'Klasse(n)' becomes 'klasse'
 
 ## License
 

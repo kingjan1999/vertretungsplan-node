@@ -1,10 +1,13 @@
-import jsdom from "jsdom";
 import _ from "lodash";
+import fsp from "fs-promise";
+import rp from "request-promise";
+import cheerio from "cheerio";
 
 const tabletojson = require('tabletojson');
 
 /**
  * Core Vertretungsplan class
+ * @property {Array} table - Array containing substitution objects. The keys are determined by the table headings, but lowercased and singularized (Klasse(n) => klasse).
  */
 class Vertretungsplan {
 
@@ -25,36 +28,32 @@ class Vertretungsplan {
    * @returns {Promise.<window>} Promise
    */
   load() {
-    return new Promise((resolve, reject) => {
-      jsdom.env({
-        file: this.file,
-        url: this.url,
-        scripts: ["http://code.jquery.com/jquery.js"],
-        done: function (err, window) {
-          if (err) {
-            reject(err);
-          }
-          resolve(window);
-        }
+    return this._fetchHtml().then((html) => {
+        return cheerio.load(html);
+      })
+      .then((window) => {
+        this.loaded = true;
+        this._loadMeta(window);
+        this._loadInfo(window);
       });
-    }).then((window) => {
-      this.loaded = true;
-      this._loadMeta(window);
-      this._loadInfo(window);
-    });
+  }
+
+  _fetchHtml() {
+    if (this.file) {
+      return fsp.readFile(this.file, 'utf8');
+    }
+    return rp.get(this.url);
   }
 
   /**
    * Extracts Meta-Information (Untis version, MOTD, last updated) from the plan
-   * @param window jsdom window containing the plan
+   * @param $ cheerio object
    * @private
    */
-  _loadMeta(window) {
-    var $ = window.$;
+  _loadMeta($) {
 
     this.untis_ver = $('meta[name=generator]').attr('content');
-
-    this.messages = $("table.info tr.info").eq(1).text().split("\n").filter((value) => {
+    this.messages = $("table.info tr.info").eq(1).text().split("\r").filter((value) => {
       return value.trim() !== "";
     });
 
@@ -64,12 +63,11 @@ class Vertretungsplan {
 
   /**
    * Extracts the substitutions from the plan
-   * @param window jsdom window containing the plan
+   * @param $ cheerio object
    * @private
    */
-  _loadInfo(window) {
-    var $ = window.$;
-    var table = tabletojson.convert($('table.mon_list')[0].outerHTML)[0];
+  _loadInfo($) {
+    var table = tabletojson.convert($.html($('table.mon_list')))[0];
     this.table = table.map((val) => {
 
       if (val['Klasse(n)'] && val['Klasse(n)'].indexOf(',') > 0) { //transform "10A, 10B, 10C" to arry
@@ -89,6 +87,11 @@ class Vertretungsplan {
     })
   }
 
+  /**
+   *
+   * @param {string} search Class to search for (like '11')
+   * @returns {Array} array containing found objects
+   */
   getForClass(search) {
     return _.filter(this.table, {klasse: search})
   }
