@@ -13,3 +13,4 @@
 ### v1.0.1
  
  * minor fixes (README etc.)
+ * Require node v4 as minimum

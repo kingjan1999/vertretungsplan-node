@@ -11,7 +11,7 @@
          alt="Coverage Status">
   </a>
 
-  <a href="https://travis-ci.org/kingjan1999/vertretungsplan">
+  <a href="https://travis-ci.org/kingjan1999/vertretungsplan-node">
     <img src="https://img.shields.io/travis/kingjan1999/vertretungsplan-node.svg?style=flat-square"
          alt="Build Status">
   </a>

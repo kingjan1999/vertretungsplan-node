@@ -62,5 +62,8 @@
     "lodash": "^4.7.0",
     "request-promise": "^2.0.1",
     "tabletojson": "^0.4.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   }
 }
