@@ -1,4 +1,4 @@
-<big><h1 align="center">vertretungsplan</h1></big>
+# vertretungsplan
 
 <p align="center">
   <a href="https://npmjs.org/package/vertretungsplan">
@@ -6,13 +6,13 @@
          alt="NPM Version">
   </a>
 
-  <a href="https://coveralls.io/r/kingjan1999/vertretungsplan">
-    <img src="https://img.shields.io/coveralls/kingjan1999/vertretungsplan.svg?style=flat-square"
+  <a href="https://coveralls.io/r/kingjan1999/vertretungsplan-node">
+    <img src="https://img.shields.io/coveralls/kingjan1999/vertretungsplan-node.svg?style=flat-square"
          alt="Coverage Status">
   </a>
 
   <a href="https://travis-ci.org/kingjan1999/vertretungsplan">
-    <img src="https://img.shields.io/travis/kingjan1999/vertretungsplan.svg?style=flat-square"
+    <img src="https://img.shields.io/travis/kingjan1999/vertretungsplan-node.svg?style=flat-square"
          alt="Build Status">
   </a>
 
@@ -21,12 +21,12 @@
          alt="Downloads">
   </a>
 
-  <a href="https://david-dm.org/kingjan1999/vertretungsplan.svg">
-    <img src="https://david-dm.org/kingjan1999/vertretungsplan.svg?style=flat-square"
+  <a href="https://david-dm.org/kingjan1999/vertretungsplan-node.svg">
+    <img src="https://david-dm.org/kingjan1999/vertretungsplan-node.svg?style=flat-square"
          alt="Dependency Status">
   </a>
 
-  <a href="https://github.com/kingjan1999/vertretungsplan/blob/master/LICENSE">
+  <a href="https://github.com/kingjan1999/vertretungsplan-node/blob/master/LICENSE">
     <img src="https://img.shields.io/npm/l/vertretungsplan.svg?style=flat-square"
          alt="License">
   </a>
