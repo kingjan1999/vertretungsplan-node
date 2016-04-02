@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kingjan1999/vertretungsplan.git"
+    "url": "git+https://github.com/kingjan1999/vertretungsplan-node.git"
   },
   "keywords": [
     "untis;vertretungsplan"
@@ -37,9 +37,9 @@
   "author": "kingjan1999 <king-jan1999@hotmail.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kingjan1999/vertretungsplan/issues"
+    "url": "https://github.com/kingjan1999/vertretungsplan-node/issues"
   },
-  "homepage": "https://github.com/kingjan1999/vertretungsplan#readme",
+  "homepage": "https://github.com/kingjan1999/vertretungsplan-node#readme",
   "devDependencies": {
     "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
