@@ -24,8 +24,8 @@ class Vertretungsplan {
   }
 
   /**
-   * Loads plan into a JSDOM-Environment
-   * @returns {Promise.<window>} Promise
+   * Loads plan into a cheerio-object
+   * @returns {Promise.<cheerio>} Promise
    */
   load() {
     return this._fetchHtml().then((html) => {
@@ -38,6 +38,11 @@ class Vertretungsplan {
       });
   }
 
+  /**
+   * Loads HTML-String from file || url
+   * @returns {Promise.<string>} Promise returning the html string
+   * @private
+     */
   _fetchHtml() {
     if (this.file) {
       return fsp.readFile(this.file, 'utf8');
