@@ -1,11 +1,12 @@
 import test from "tape";
 import Vertretungsplan from "../src";
-//import util from "util";
+//import _test from 'tape-promise'
+//const test = _test(tape) // decorate tape
 
 test("vertretretungsplan-load", (t) => {
   t.plan(1);
 
-  var plan = new Vertretungsplan('file://test/plan_subst_001.htm');
+  var plan = new Vertretungsplan('http://ohgspringe.de/phocadownload/plan/subst_001.htm');
 
   plan.load().then(() => {
     t.equal(plan.loaded, true, "loaded data");
@@ -28,14 +29,30 @@ test("vertretungsplans-meta", (t) => {
 
 });
 
-/*test("vertretungsplan-info", (t) => {
-  t.plan(0);
+test("vertretungsplan-info", (t) => {
+  t.plan(1);
   var plan = new Vertretungsplan('file://test/plan_subst_001.htm');
 
   plan.load().then(() => {
-    console.log(util.inspect(plan.table));
+    t.deepEqual(plan.table[0], {
+      stunde: '5 - 6',
+      '(fach)': 'Fr',
+      '(raum)': 'P12',
+      fach: 'Fr',
+      raum: 'M02',
+      klasse: '9F1'
+    }, "check first subst.");
   });
-
 });
 
-*/
+test("hasAusfall", (t) => {
+  t.plan(3);
+  var plan = new Vertretungsplan('file://test/plan_subst_001.htm');
+
+  plan.load().then(() => {
+    console.log(plan.getForClass('9F1'));
+    t.equal(plan.getForClass('9F1').length, 2, "check 9F1");
+    t.equal(plan.getForClass('9F1')[0].fach, 'Fr', "check 9F1 fach");
+    t.equal(plan.getForClass('13').length, 0 , "year 13");
+  });
+});

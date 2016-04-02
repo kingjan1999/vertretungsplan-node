@@ -53,6 +53,7 @@
     "rimraf": "*",
     "tap-spec": "*",
     "tape": "*",
+    "tape-promise": "^1.0.1",
     "watch": "*"
   },
   "dependencies": {
