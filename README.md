@@ -21,7 +21,7 @@
          alt="Downloads">
   </a>
 
-  <a href="https://david-dm.org/kingjan1999/vertretungsplan-node.svg">
+  <a href="https://david-dm.org/kingjan1999/vertretungsplan-node">
     <img src="https://david-dm.org/kingjan1999/vertretungsplan-node.svg?style=flat-square"
          alt="Dependency Status">
   </a>

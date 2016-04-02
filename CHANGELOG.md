@@ -9,3 +9,7 @@
 ### v1.0.0
 
  * vertretungsplan initial commit.
+
+### v1.0.1
+ 
+ * minor fixes (README etc.)
