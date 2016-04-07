@@ -12,6 +12,7 @@ const tabletojson = require('tabletojson');
  * @property {String} untis_ver - Version of Untis used
  * @property {String} last_updated - Time, the plan was last updated
  * @property {Array] messages - Array of MOTDs
+ * @property {String} date - Date of the plan
  */
 class Vertretungsplan {
 
@@ -80,6 +81,7 @@ class Vertretungsplan {
     });
 
     this.last_updated = $('.mon_head tr').last().text().trim();
+    this.date = _.words($('.mon_title').text(), /[^, ]+/g)[0];
 
   }
 

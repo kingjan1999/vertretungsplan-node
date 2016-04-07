@@ -21,3 +21,8 @@
   * add encoding parameter in constructor (defaults to iso-8859-1)
   * encode test file as iso-8859-1
   * document meta informations
+
+### v1.1.0
+
+  * fixed travis ci
+  * added date property

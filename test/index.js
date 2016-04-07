@@ -25,7 +25,7 @@ test("errors", (t) => {
 });
 
 test("vertretungsplans-meta", (t) => {
-  t.plan(3);
+  t.plan(4);
 
   var plan = new Vertretungsplan('file://test/plan_subst_001.htm');
 
@@ -35,6 +35,7 @@ test("vertretungsplans-meta", (t) => {
     t.deepEqual(plan.messages, ['Vertretungsplan: Bk',
       'Jg. 11: Ausgabe der Facharbeitsthemen durch die Fachlehrer in der 3. großen Pause in der Aula!',
       'P-Trakt ist vom 4.04.-29.04.2016 gesperrt: Schriftliches Abitur!'], "messages");
+    t.equal(plan.date , "4.4.2016", "date");
   });
 
 });
