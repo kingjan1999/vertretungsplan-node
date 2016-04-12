@@ -26,3 +26,8 @@
 
   * fixed travis ci
   * added date property
+
+### v1.1.1
+
+  * downgrade required node version (4 -> 0.12) 
+  * use export default instead export as default

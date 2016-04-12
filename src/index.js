@@ -122,4 +122,4 @@ class Vertretungsplan {
 
 }
 
-export {Vertretungsplan as default};
+export default Vertretungsplan;
