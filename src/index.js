@@ -11,7 +11,7 @@ const tabletojson = require('tabletojson');
  * @property {Array} table - Array containing substitution objects. The keys are determined by the table headings, but lowercased and singularized (Klasse(n) => klasse).
  * @property {String} untis_ver - Version of Untis used
  * @property {String} last_updated - Time, the plan was last updated
- * @property {Array] messages - Array of MOTDs
+ * @property {Array} messages - Array of MOTDs
  * @property {String} date - Date of the plan
  * @property {Boolean} loaded - Loaded Status of plan (default: false), call .load()
  * @property {String} url - URL of the plan
