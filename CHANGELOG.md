@@ -4,6 +4,9 @@
 
 - [v1.0.0](#v100)
 - [v1.0.1](#v101)
+- [v1.0.2](#v102)
+- [v1.1.0](#v110)
+- [v1.1.1](#v111)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

@@ -13,6 +13,9 @@ const tabletojson = require('tabletojson');
  * @property {String} last_updated - Time, the plan was last updated
  * @property {Array] messages - Array of MOTDs
  * @property {String} date - Date of the plan
+ * @property {Boolean} loaded - Loaded Status of plan (default: false), call .load()
+ * @property {String} url - URL of the plan
+ * @property {String} encoding - http plan encoding. Will be transcoded to utf8
  */
 class Vertretungsplan {
 
@@ -38,8 +41,7 @@ class Vertretungsplan {
     const encoding = this.encoding;
 
     return this._fetchHtml().then((body) => {
-        var decoded = iconv.decode(new Buffer(body), encoding);
-        return decoded;
+        return iconv.decode(new Buffer(body), encoding);
       })
       .then((html) => {
         return cheerio.load(html);
