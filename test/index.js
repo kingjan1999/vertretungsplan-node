@@ -57,12 +57,13 @@ test("vertretungsplan-info", (t) => {
 });
 
 test("hasAusfall", (t) => {
-  t.plan(3);
+  t.plan(4);
   var plan = new Vertretungsplan('file://test/plan_subst_001.htm');
 
   plan.load().then(() => {
     t.equal(plan.getForClass('9F1').length, 2, "check 9F1");
     t.equal(plan.getForClass('9F1')[0].fach, 'Fr', "check 9F1 fach");
     t.equal(plan.getForClass('13').length, 0, "year 13");
+    t.equal(plan.getForClass('10B')[0].fach, 'Sn', "check 10B array fach");
   });
 });

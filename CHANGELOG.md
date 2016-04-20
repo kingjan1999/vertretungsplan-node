@@ -7,6 +7,7 @@
 - [v1.0.2](#v102)
 - [v1.1.0](#v110)
 - [v1.1.1](#v111)
+- [v1.1.2](#v112)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -34,3 +35,8 @@
 
   * downgrade required node version (4 -> 0.12) 
   * use export default instead export as default
+
+### v1.1.2
+
+  * getForClass fix for array classes
+  * trim class arrays

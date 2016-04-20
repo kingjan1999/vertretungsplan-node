@@ -97,7 +97,9 @@ class Vertretungsplan {
     this.table = table.map((val) => {
 
       if (val['Klasse(n)'] && val['Klasse(n)'].indexOf(',') > 0) { //transform "10A, 10B, 10C" to arry
-        val['Klasse(n)'] = val['Klasse(n)'].split(',');
+        var splitted = val['Klasse(n)'].split(',');
+        splitted = _.map(splitted, _.trim);
+        val['Klasse(n)'] = splitted;
       }
 
       if (typeof(val['Klasse(n)']) !== 'undefined') { //replace "Klasse(n)" with "Klasse"
@@ -119,7 +121,9 @@ class Vertretungsplan {
    * @returns {Array} array containing found objects
    */
   getForClass(search) {
-    return _.filter(this.table, {klasse: search})
+    return _.filter(this.table, function (o) {
+      return o.klasse == search || (Array.isArray(o.klasse) && o.klasse.indexOf(search) > -1);
+    })
   }
 
 }
