@@ -41,15 +41,15 @@
   },
   "homepage": "https://github.com/kingjan1999/vertretungsplan-node#readme",
   "devDependencies": {
-    "babel-cli": "^6.9.0",
-    "babel-core": "^6.9.1",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
     "babel-eslint": "*",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015": "^6.18.0",
     "coveralls": "*",
     "doctoc": "*",
     "eslint": "*",
     "isparta": "*",
-    "jsdoc": "^3.4.0",
+    "jsdoc": "^3.4.3",
     "rimraf": "*",
     "tap-spec": "*",
     "tape": "*",
@@ -57,11 +57,11 @@
     "watch": "*"
   },
   "dependencies": {
-    "cheerio": "^0.20.0",
-    "fs-promise": "^0.5.0",
-    "iconv-lite": "^0.4.13",
-    "lodash": "^4.13.1",
-    "request-promise": "^3.0.0",
+    "cheerio": "^0.22.0",
+    "fs-promise": "^1.0.0",
+    "iconv-lite": "^0.4.15",
+    "lodash": "^4.17.4",
+    "request-promise": "^4.1.1",
     "tabletojson": "^0.4.0"
   },
   "engines": {
