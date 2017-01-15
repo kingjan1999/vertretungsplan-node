@@ -8,6 +8,8 @@
 - [v1.1.0](#v110)
 - [v1.1.1](#v111)
 - [v1.1.2](#v112)
+- [v1.1.3](#v113)
+- [v1.1.4](#v114)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
