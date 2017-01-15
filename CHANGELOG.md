@@ -40,3 +40,11 @@
 
   * getForClass fix for array classes
   * trim class arrays
+
+### v1.1.3
+
+  * update deps
+
+### v1.1.4
+
+  * update deps
