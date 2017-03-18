@@ -4,7 +4,7 @@ import rp from "request-promise";
 import cheerio from "cheerio";
 import iconv from "iconv-lite";
 
-const tabletojson = require('tabletojson');
+const tableasjson = require('tableasjson');
 
 /**
  * Core Vertretungsplan class
@@ -93,7 +93,7 @@ class Vertretungsplan {
    * @private
    */
   _loadInfo($) {
-    var table = tabletojson.convert($.html($('table.mon_list')))[0];
+    var table = tableasjson.convert($.html($('table.mon_list')))[0];
     this.table = table.map((val) => {
 
       if (val['Klasse(n)'] && val['Klasse(n)'].indexOf(',') > 0) { //transform "10A, 10B, 10C" to arry
