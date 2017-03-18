@@ -50,3 +50,12 @@
 ### v1.1.4
 
   * update deps
+
+### v1.1.5
+ 
+  * use tableasjson instead of tabletojson (package.json)
+
+### v1.1.6
+
+  * replace tabletojson with tableasjson (in code)
+  
